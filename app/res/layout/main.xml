@@ -13,16 +13,19 @@
         	android:layout_width="0dp"
         	android:layout_height="wrap_content"
         	android:hint="@string/item_example"
-        	android:padding="10dp"/>
-        <ImageButton android:src="@android:drawable/ic_menu_add"
+        	android:padding="10dp"
+        	android:inputType="textCapWords"
+        	android:imeOptions="actionDone"/>
+        <ImageButton android:src="@drawable/menu_send"
             android:contentDescription="@string/add_button"
             android:id="@+id/add_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"/>
+            android:paddingLeft="10dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@android:color/background_dark"/>
     
     </LinearLayout>
 
@@ -33,5 +36,6 @@
     <TextView android:id="@android:id/empty"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:text="@string/no_item"/>
+        android:text="@string/no_item"
+        android:gravity=""/>
 </LinearLayout>

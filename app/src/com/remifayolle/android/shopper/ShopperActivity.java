@@ -5,14 +5,18 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 //import android.widget.ShareActionProvider;
 import android.widget.SimpleCursorAdapter;
 //import android.widget.Toast;
@@ -42,6 +46,15 @@ public class ShopperActivity extends ListActivity {
         registerForContextMenu(getListView());
         
         mInput = (EditText) findViewById(R.id.editor);
+        mInput.setOnEditorActionListener(new OnEditorActionListener(){
+        	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        		if (actionId == EditorInfo.IME_ACTION_DONE) {
+        			mAddButton.performClick();
+                    return true;
+                }
+				return false;
+			}
+		});
         
         mAddButton = (ImageButton) findViewById(R.id.add_button);
         mAddButton.setOnClickListener(new OnClickListener(){
