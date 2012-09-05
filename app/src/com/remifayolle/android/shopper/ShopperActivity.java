@@ -1,4 +1,4 @@
-package com.remifayolle.shopper;
+package com.remifayolle.android.shopper;
 
 import android.app.ListActivity;
 import android.content.Intent;
