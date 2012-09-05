@@ -17,12 +17,15 @@ Please fork this repository and contribute back using
 ## Git quick reminder
 
 If other changes are made online, you can synchronise your local repo :
+
     git pull origin master
+
 Finally you can push your local modification to the distant repo :
+
     git push -u origin master
 
 ## Building with Eclipse
 
-You just have to import thje {{{app}}} folder as an Android project.
+You just have to import the [app] folder as an Android project.
 
 
