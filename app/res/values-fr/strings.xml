@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shopper</string>
+    <string name="no_item">Rien à acheter!</string>
+    <string name="item_example">Pain…</string>
+    <string name="menu_delete">Tout supprimer</string>
+    <string name="menu_share">Partager</string>
+    <string name="add_button">Achète !</string>
+    <string name="one_delete">Supprimer</string>
+    <string name="share_begin">A acheter :</string>
+    <string name="share_menu_title">Partager la liste…</string>
+</resources>

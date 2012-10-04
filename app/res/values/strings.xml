@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Shopper</string>
     <string name="no_item">Nothing to buy!</string>
-    <string name="item_example">Guinness…</string>
+    <string name="item_example">Bread…</string>
     <string name="menu_delete">Delete all</string>
     <string name="menu_share">Share</string>
     <string name="add_button">Shop !</string>

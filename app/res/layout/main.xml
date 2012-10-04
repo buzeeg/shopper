@@ -14,7 +14,7 @@
         	android:layout_height="wrap_content"
         	android:hint="@string/item_example"
         	android:padding="10dp"
-        	android:inputType="textCapWords"
+        	android:inputType="textCapSentences"
         	android:imeOptions="actionDone"/>
         <ImageButton android:src="@drawable/menu_send"
             android:contentDescription="@string/add_button"
@@ -26,7 +26,6 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:background="@android:color/background_dark"/>
-    
     </LinearLayout>
 
     
@@ -37,5 +36,5 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:text="@string/no_item"
-        android:gravity=""/>
+        android:gravity="center"/>
 </LinearLayout>
