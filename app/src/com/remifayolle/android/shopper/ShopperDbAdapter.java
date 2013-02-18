@@ -41,16 +41,16 @@ public class ShopperDbAdapter {
         @SuppressWarnings("unused")
 		private static final String DATABASE_CREATEv2 = "CREATE TABLE " + DATABASE_TABLE +
         	"(" +
-        	KEY_ROWID + " integer primary key autoincrement," +
-        	KEY_DESC + " text not null" +
+        	KEY_ROWID + " integer primary key autoincrement, " +
+        	KEY_DESC + " text not null " +
         	");";
         
         /* V3 database creation statement */
         private static final String DATABASE_CREATE = "CREATE TABLE " + DATABASE_TABLE +
             "(" +
-            KEY_ROWID + " integer primary key autoincrement," +
-            KEY_DESC + " text not null" +
-            KEY_ISDONE + " boolean" +
+            KEY_ROWID + " integer primary key autoincrement, " +
+            KEY_DESC + " text not null, " +
+            KEY_ISDONE + " boolean " +
             ");";
 
         /**
