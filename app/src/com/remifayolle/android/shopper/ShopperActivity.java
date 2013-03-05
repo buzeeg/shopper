@@ -108,7 +108,8 @@ public class ShopperActivity extends SherlockListActivity {
 
 	private void fillData() {
 		// Get all of the rows from the database and create the item list
-        Cursor itemCursor = mDbHelper.fetchAllItems();        
+        Cursor itemCursor = mDbHelper.fetchAllItems();
+        //startManagingCursor(itemCursor); //TODO: use CursorLoader
 
         // Create an array to specify the fields we want to display in the list
         String[] from = new String[]{ShopperDbAdapter.KEY_DESC};
@@ -170,6 +171,7 @@ public class ShopperActivity extends SherlockListActivity {
 		c.moveToPosition(position);
 		
 		mDbHelper.updateItem(c.getInt(c.getColumnIndexOrThrow(ShopperDbAdapter.KEY_ROWID)), c.getString(c.getColumnIndexOrThrow(ShopperDbAdapter.KEY_DESC)), true);
+		c.close();
 		
 		super.onListItemClick(l, v, position, id);
 	}
@@ -201,6 +203,7 @@ public class ShopperActivity extends SherlockListActivity {
         		mDbHelper.deleteItem(itemCursor.getLong(itemCursor.getColumnIndexOrThrow(ShopperDbAdapter.KEY_ROWID)));
         	}
         }
+        itemCursor.close();
         
         // Refresh the list
 		fillData();
@@ -227,6 +230,7 @@ public class ShopperActivity extends SherlockListActivity {
         		}
         	}
         }
+        itemCursor.close();
 		
     	Intent shareIntent = new Intent(Intent.ACTION_SEND);
     	shareIntent.setType("text/plain");
