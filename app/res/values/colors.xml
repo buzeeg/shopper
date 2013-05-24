@@ -4,5 +4,7 @@
          #ARGB
          #RRGGBB
          #AARRGGBB -->
-    <color name="translucent_grey">#20000000</color>
+    <color name="darkgrey">#aaa</color>
+    <color name="grey">#ddd</color>
+    <color name="white">#fff</color>
 </resources>
