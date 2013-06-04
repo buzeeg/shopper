@@ -28,4 +28,11 @@ Finally you can push your local modification to the distant repo :
 
 You just have to import the [app] folder as an Android project.
 
+## Building with Android Studio
+<i>Under construction.</i>
+
+## License
+
+Shopper is under BEERWARE licensing.
+See the [license file](BEERWARE-LICENSE.txt).
 
