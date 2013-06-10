@@ -44,9 +44,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/white"
+        android:background="@color/grey"
         android:dividerHeight="2dp"
         android:divider="@color/grey"
+        android:drawSelectorOnTop="true"
         />
     <TextView android:id="@android:id/empty"
         android:layout_width="fill_parent"

@@ -10,4 +10,5 @@
     android:ellipsize="end"
     android:maxLines="1"
     android:textIsSelectable="false"
-    android:textAppearance="@android:style/TextAppearance.Medium"/>
+    android:textAppearance="@android:style/TextAppearance.Medium"
+    android:background="@color/white"/>
