@@ -5,6 +5,6 @@
          #RRGGBB
          #AARRGGBB -->
     <color name="darkgrey">#aaa</color>
-    <color name="grey">#ddd</color>
+    <color name="grey">#e5e5e5</color>
     <color name="white">#fff</color>
 </resources>
