@@ -21,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".database.ItemsContentProvider"
+            android:authorities="com.remifayolle.android.shopper.database.itemscontentprovider"
+            android:exported="false">
+        </provider>
     </application>
 
 </manifest>
