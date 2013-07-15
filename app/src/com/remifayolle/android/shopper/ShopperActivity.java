@@ -6,7 +6,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 /**
  * @author rem
  */
-public class ShopperMainActivity extends SherlockFragmentActivity {
+public class ShopperActivity extends SherlockFragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
