@@ -29,7 +29,12 @@ Finally you can push your local modification to the distant repo :
 You just have to import the [app] folder as an Android project.
 
 ## Building with Android Studio
-<i>Under construction.</i>
+
+* Clone the repository :
+    git clone https://github.com/buzeeg/shopper.git shopper
+* Update `local.properties` file with local path to android sdk
+* Open project in Android Studio
+* Select your local path
 
 ## License
 
