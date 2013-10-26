@@ -3,12 +3,13 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.5.+'
+        classpath 'com.android.tools.build:gradle:0.6.+'
     }
 }
 apply plugin: 'android'
 
 dependencies {
+    compile project(':libs:ActionBarSherlock-4.2.0:library')
 }
 
 android {

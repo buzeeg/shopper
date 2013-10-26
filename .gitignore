@@ -14,20 +14,18 @@ gen/
 
 # Local configuration file (sdk path, etc)
 local.properties
-#proguard.cfg
 
-# Eclipse stuff
+# Eclipse project files
 #.classpath
 #.project
-#.settings
 
-# IDEA stuff - http://stackoverflow.com/questions/11968531/what-to-gitignore-from-the-idea-folder
-#.idea/
-#build.gradle
-#*.iml
-*.iws
-*/.idea/workspace.xml
-*/.idea/tasks.xml
+# Gradle
+.gradle/
+build/
+
+# Android Studio
+*.idea/workspace.xml
+*.idea/tasks.xml
 
 # production stuff
 */out/
