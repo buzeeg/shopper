@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="config_app_name">Shopper</string>
+    <string name="config_app_package">com.remifayolle.android.shopper</string>
+    <string name="config_authority">com.remifayolle.android.shopper.database.itemscontentprovider</string>
+</resources>

@@ -3,31 +3,56 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.6.+'
+        classpath 'com.android.tools.build:gradle:0.14.2'
     }
 }
-apply plugin: 'android'
+
+apply plugin: 'com.android.application'
 
 dependencies {
     compile project(':libs:ActionBarSherlock-4.2.0:library')
 }
 
 android {
-    compileSdkVersion 17
-    buildToolsVersion "17"
+    compileSdkVersion 21
+    buildToolsVersion '21.1.1'
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 17
+        targetSdkVersion 21
     }
+
+
+    buildTypes {
+        release {
+            buildConfigField "String" , "AUTHORITY" , "\"com.remifayolle.android.shopper.database.itemscontentprovider\""
+        }
+        debug {
+            buildConfigField "String" , "AUTHORITY" , "\"com.remifayolle.android.shopper.debug.database.itemscontentprovider\""
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+        }
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
+        }
+        debug {
             java.srcDirs = ['src']
             resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
+            res.srcDirs = ['debug/res','res']
+            assets.srcDirs = ['assets']
+        }
+
+        release {
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['release/res','res']
             assets.srcDirs = ['assets']
         }
 

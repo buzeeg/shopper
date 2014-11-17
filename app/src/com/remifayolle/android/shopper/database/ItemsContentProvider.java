@@ -10,6 +10,8 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.remifayolle.android.shopper.BuildConfig;
+
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -31,7 +33,7 @@ public class ItemsContentProvider extends ContentProvider {
 
 
     // ItemsContentProvider Uri
-    private static final String AUTHORITY = "com.remifayolle.android.shopper.database.itemscontentprovider";
+    private static final String AUTHORITY = BuildConfig.AUTHORITY; //"com.remifayolle.android.shopper.database.itemscontentprovider";
     private static final String BASE_PATH = "items";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
 
