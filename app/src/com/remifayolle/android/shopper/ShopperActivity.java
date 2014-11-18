@@ -1,12 +1,12 @@
 package com.remifayolle.android.shopper;
 
 import android.os.Bundle;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 
 /**
  * @author rem
  */
-public class ShopperActivity extends SherlockFragmentActivity {
+public class ShopperActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

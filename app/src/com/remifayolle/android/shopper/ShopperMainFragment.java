@@ -5,24 +5,33 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SimpleCursorAdapter;
-import android.view.*;
+import android.view.ContextMenu;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.*;
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
+
 import com.remifayolle.android.shopper.database.ItemsContentProvider;
 import com.remifayolle.android.shopper.database.ItemsTable;
 
 /**
  * @author rem
  */
-public class ShopperMainFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class ShopperMainFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private SimpleCursorAdapter mAdapter = null;
     private ImageButton mAddButton = null;
@@ -62,6 +71,13 @@ public class ShopperMainFragment extends SherlockListFragment implements LoaderM
 
         mInput = (EditText) view.findViewById(R.id.editor);
         if(mInput != null) {
+            // set padding by code for pre-lollipop devices (http://code.google.com/p/android/issues/detail?id=77982)
+            final float scale = getResources().getDisplayMetrics().density; // Get the screen's density scale
+            int leftInDp = (int) (16 * scale + 0.5f);
+            int topInDp = (int) (8 * scale + 0.5f);
+            int othersInDp = (int) (4 * scale + 0.5f);
+            mInput.setPadding(leftInDp,topInDp,othersInDp,othersInDp);
+
             mInput.setOnEditorActionListener(new TextView.OnEditorActionListener(){
                 public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                     if (actionId == EditorInfo.IME_ACTION_DONE) {

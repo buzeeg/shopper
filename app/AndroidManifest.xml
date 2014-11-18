@@ -7,7 +7,7 @@
     <application
         android:icon="@drawable/icon"
         android:label="@string/config_app_name"
-        android:theme="@style/Theme.Sherlock.Light.DarkActionBar"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         android:allowBackup="true" >
         <activity
             android:name=".ShopperActivity"

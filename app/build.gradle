@@ -10,7 +10,8 @@ buildscript {
 apply plugin: 'com.android.application'
 
 dependencies {
-    compile project(':libs:ActionBarSherlock-4.2.0:library')
+    //compile project(':libs:ActionBarSherlock-4.2.0:library')
+    compile "com.android.support:appcompat-v7:21.0.0"
 }
 
 android {
