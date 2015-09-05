@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -28,15 +29,25 @@ import android.widget.TextView;
 import com.remifayolle.android.shopper.database.ItemsContentProvider;
 import com.remifayolle.android.shopper.database.ItemsTable;
 
+import java.util.ArrayList;
+
 /**
  * @author rem
  */
-public class ShopperMainFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class ShopperMainFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>,View.OnClickListener {
 
     private SimpleCursorAdapter mAdapter = null;
     private ImageButton mAddButton = null;
     private EditText mInput = null;
     private static final int DELETE_ID = Menu.FIRST;
+
+    private class ItemToSave {
+        // item data
+        public int id = -1;
+        public String desc = "";
+        public int isDone = 0;
+    }
+    private ArrayList<ItemToSave> mItemsToSave = null;
 
     /**
      * Fragment creation
@@ -161,8 +172,59 @@ public class ShopperMainFragment extends ListFragment implements LoaderManager.L
      * Delete all items
      */
     private void clearList() {
-        getActivity().getContentResolver().delete(ItemsContentProvider.CONTENT_URI, null, null);
+        mItemsToSave = new ArrayList<ItemToSave>();
+
+        Cursor cursor = mAdapter.getCursor();
+        if (cursor != null) {
+            cursor.moveToFirst();
+
+            ItemToSave item = new ItemToSave();
+            item.id = cursor.getInt(cursor.getColumnIndex(ItemsTable.COLUMN_ID));
+            item.desc = cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_DESC));
+            item.isDone = cursor.getInt(cursor.getColumnIndex(ItemsTable.COLUMN_ISDONE));
+            mItemsToSave.add(item);
+
+            while(cursor.moveToNext()) {
+                item = new ItemToSave();
+                item.id = cursor.getInt(cursor.getColumnIndex(ItemsTable.COLUMN_ID));
+                item.desc = cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_DESC));
+                item.isDone = cursor.getInt(cursor.getColumnIndex(ItemsTable.COLUMN_ISDONE));
+
+                mItemsToSave.add(item);
+            }
+        }
+
+        int deletedRows = getActivity().getContentResolver().delete(ItemsContentProvider.CONTENT_URI, null, null);
+
+        if(deletedRows>0) {
+            Snackbar.make(getActivity().findViewById(R.id.main_frag),
+                    R.string.items_deleted,
+                    Snackbar.LENGTH_LONG)
+                    .setAction(R.string.undo, this)
+                    .show();
+        }
     }
+
+    /**
+     * Snackbar action clicked
+     */
+    @Override
+    public void onClick(View v) {
+        if(mItemsToSave!=null)
+            for(int i=0; i<mItemsToSave.size(); i++) {
+            ContentValues values = new ContentValues();
+            values.put(ItemsTable.COLUMN_DESC, mItemsToSave.get(i).desc);
+            values.put(ItemsTable.COLUMN_ISDONE, mItemsToSave.get(i).isDone);
+            getActivity().getContentResolver().insert(ItemsContentProvider.CONTENT_URI, values);
+        }
+
+        Snackbar.make(getActivity().findViewById(R.id.main_frag),
+                    R.string.items_restored,
+                    Snackbar.LENGTH_SHORT)
+                .show();
+    }
+
+
 
     /**
      * Share current items list
@@ -192,7 +254,7 @@ public class ShopperMainFragment extends ListFragment implements LoaderManager.L
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT,toShare.toString());
-        startActivity(Intent.createChooser(shareIntent,getString(R.string.share_menu_title)));
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_menu_title)));
     }
 
 

@@ -9,4 +9,7 @@
     <string name="one_delete">Delete</string>
     <string name="share_begin">To shop :</string>
     <string name="share_menu_title">Share list…</string>
+    <string name="items_deleted">All items have been deleted</string>
+    <string name="undo">Undo</string>
+    <string name="items_restored">Items have been restored</string>
 </resources>

@@ -9,4 +9,7 @@
     <string name="one_delete">Supprimer</string>
     <string name="share_begin">A acheter :</string>
     <string name="share_menu_title">Partager la liste…</string>
+    <string name="items_deleted">Liste nettoyée</string>
+    <string name="undo">Annuler</string>
+    <string name="items_restored">Liste restaurée</string>
 </resources>

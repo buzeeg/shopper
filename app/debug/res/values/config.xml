@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="config_app_name">Shopper-debug</string>
-    <string name="config_app_package">com.remifayolle.android.shopper.debug</string>
-    <string name="config_authority">com.remifayolle.android.shopper.debug.database.itemscontentprovider</string>
+    <string name="config_app_name" translatable="false">Shopper-debug</string>
+    <string name="config_app_package" translatable="false">com.remifayolle.android.shopper.debug</string>
+    <string name="config_authority" translatable="false">com.remifayolle.android.shopper.debug.database.itemscontentprovider</string>
 </resources>
