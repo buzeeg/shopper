@@ -11,4 +11,5 @@
     android:maxLines="1"
     android:textIsSelectable="false"
     android:textAppearance="@android:style/TextAppearance.Medium"
-    android:background="@color/white"/>
+    android:background="@color/white"
+    android:elevation="2dp"/>

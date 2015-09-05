@@ -1,26 +1,25 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.14.2'
+        classpath 'com.android.tools.build:gradle:1.3.0'
     }
 }
 
 apply plugin: 'com.android.application'
 
 dependencies {
-    //compile project(':libs:ActionBarSherlock-4.2.0:library')
-    compile "com.android.support:appcompat-v7:21.0.0"
+    compile 'com.android.support:appcompat-v7:22.2.1'
 }
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion '21.1.1'
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 21
+        targetSdkVersion 22
     }
 
 
