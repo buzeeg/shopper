@@ -289,8 +289,31 @@ public class ShopperMainFragment extends ListFragment implements LoaderManager.L
         switch(item.getItemId()) {
             case DELETE_ID:
                 AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-                Uri deleteUri = Uri.parse(ItemsContentProvider.CONTENT_URI + "/" + info.id);
-                getActivity().getContentResolver().delete(deleteUri, null, null);
+
+                // save data for undo
+                Cursor c = mAdapter.getCursor();
+                c.moveToPosition(info.position);
+                ItemToSave i = new ItemToSave();
+                i.id = c.getInt(c.getColumnIndex(ItemsTable.COLUMN_ID));
+                i.desc = c.getString(c.getColumnIndex(ItemsTable.COLUMN_DESC));
+                i.isDone = c.getInt(c.getColumnIndex(ItemsTable.COLUMN_ISDONE));
+                mItemsToSave = new ArrayList<ItemToSave>();
+                mItemsToSave.add(i);
+
+                // delete
+                Uri deleteUri = Uri.parse(ItemsContentProvider.CONTENT_URI + "/" + i.id);
+                int deletedRows = getActivity().getContentResolver().delete(deleteUri, null, null);
+
+                // display snackbar
+                if(deletedRows>0) {
+                    Snackbar.make(getActivity().findViewById(R.id.main_frag),
+                            R.string.item_deleted,
+                            Snackbar.LENGTH_LONG)
+                            .setAction(R.string.undo, this)
+                            .setActionTextColor(getResources().getColor(R.color.primary))
+                            .show();
+                }
+
                 return true;
         }
         return super.onContextItemSelected(item);
