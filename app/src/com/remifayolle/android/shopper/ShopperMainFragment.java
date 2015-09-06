@@ -201,6 +201,7 @@ public class ShopperMainFragment extends ListFragment implements LoaderManager.L
                     R.string.items_deleted,
                     Snackbar.LENGTH_LONG)
                     .setAction(R.string.undo, this)
+                    .setActionTextColor(getResources().getColor(R.color.primary))
                     .show();
         }
     }
